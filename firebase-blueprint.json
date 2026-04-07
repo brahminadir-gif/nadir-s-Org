@@ -1,0 +1,41 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile with notification tokens and password",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "role": { "type": "string", "enum": ["SUPER", "HSE", "CHEF_EQUIPE", "AGENT_QUART", "TECHNICIEN", "AGENT_POLYVALENT"] },
+        "title": { "type": "string" },
+        "password": { "type": "string" },
+        "fcmTokens": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": ["name", "role", "password"]
+    },
+    "Notification": {
+      "title": "Notification",
+      "description": "Notification record for history",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "body": { "type": "string" },
+        "type": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "isRead": { "type": "boolean" }
+      },
+      "required": ["userId", "title", "body", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profiles and tokens"
+    },
+    "/notifications/{notificationId}": {
+      "schema": "Notification",
+      "description": "Notification history"
+    }
+  }
+}

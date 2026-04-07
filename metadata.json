@@ -1,0 +1,5 @@
+{
+  "name": "Tabelbala Maintenance & Security (TMS)",
+  "description": "Application de gestion de maintenance et sécurité pour la Centrale Diesel de Tabelbala (SONELGAZ/SPE). Gestion des OT, AT, consignations et personnel.",
+  "requestFramePermissions": []
+}
